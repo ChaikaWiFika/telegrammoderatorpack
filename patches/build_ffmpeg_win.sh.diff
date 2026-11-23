@@ -1,0 +1,10 @@
+diff --git a/build_ffmpeg_win.sh b/build_ffmpeg_win.sh
+index 70eb1ad..545bafe 100644
+--- a/build_ffmpeg_win.sh
++++ b/build_ffmpeg_win.sh
+@@ -1,4 +1,5 @@
+ set -e
++export VSLANG=1033
+ FullExecPath=$PWD
+ pushd `dirname $0` > /dev/null
+ FullScriptPath=`pwd`
