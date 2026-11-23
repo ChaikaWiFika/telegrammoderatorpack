@@ -1,0 +1,192 @@
+diff --git a/ui/colors.palette b/ui/colors.palette
+index e2ba0d6..710b7fe 100644
+--- a/ui/colors.palette
++++ b/ui/colors.palette
+@@ -7,17 +7,17 @@
+ 
+ // basic
+ windowBg: #ffffff; // white: fallback for background
+-windowFg: #000000; // black: fallback for text
+-windowBgOver: #f1f1f1; // light gray: fallback for background with mouse over
+-windowBgRipple: #e5e5e5; // darker gray: fallback for ripple effect
++windowFg: #1F1F1F; // black: fallback for text
++windowBgOver: #F2F2F2; // light gray: fallback for background with mouse over
++windowBgRipple: #E6E6E6; // darker gray: fallback for ripple effect
+ windowFgOver: windowFg; // black: fallback for text with mouse over
+-windowSubTextFg: #999999; // gray: fallback for additional text
+-windowSubTextFgOver: #919191; // darker gray: fallback for additional text with mouse over
+-windowBoldFg: #222222; // dark gray: fallback for bold text
+-windowBoldFgOver: #222222; // dark gray: fallback for bold text with mouse over
+-windowBgActive: #40a7e3; // bright blue: fallback for blue filled active areas
++windowSubTextFg: #6B6B6B; // gray: fallback for additional text
++windowSubTextFgOver: #5F5F5F; // darker gray: fallback for additional text with mouse over
++windowBoldFg: #1F1F1F; // dark gray: fallback for bold text
++windowBoldFgOver: #1F1F1F; // dark gray: fallback for bold text with mouse over
++windowBgActive: #0078D7; // bright blue: fallback for blue filled active areas
+ windowFgActive: #ffffff; // white: fallback for text on active areas
+-windowActiveTextFg: #168acd; // online blue: fallback for active text like online status
++windowActiveTextFg: #0067B8; // online blue: fallback for active text like online status
+ windowShadowFg: #000000; // black: fallback for shadow
+ windowShadowFgFallback: #f1f1f1; // gray: fallback for shadow without opacity
+ 
+@@ -30,53 +30,53 @@ imageBgTransparent: #ffffff; // image background when displaying an image with o
+ 
+ // widgets
+ activeButtonBg: windowBgActive; // default active button background
+-activeButtonBgOver: #39a5db; // default active button background with mouse over
+-activeButtonBgRipple: #2095d0; // default active button ripple effect
++activeButtonBgOver: #0067B8; // default active button background with mouse over
++activeButtonBgRipple: #005A9E; // default active button ripple effect
+ activeButtonFg: windowFgActive; // default active button text
+ activeButtonFgOver: activeButtonFg; // default active button text with mouse over
+ activeButtonSecondaryFg: #cceeff; // default active button additional text (selected messages counter in forward / delete buttons)
+ activeButtonSecondaryFgOver: activeButtonSecondaryFg; // default active button additional text with mouse over
+-activeLineFg: #37a1de; // default active line (like code input field bottom border when you log in and field is focused)
++activeLineFg: #0078D7; // default active line (like code input field bottom border when you log in and field is focused)
+ activeLineFgError: #e48383; // default active line for error state (like code input field bottom border when you log in and you've entered incorrect code)
+ 
+ lightButtonBg: windowBg; // default light button background (like buttons in boxes)
+-lightButtonBgOver: #e3f1fa; // default light button background with mouse over
+-lightButtonBgRipple: #c9e4f6; // default light button ripple effect
++lightButtonBgOver: #E6F2FB; // default light button background with mouse over
++lightButtonBgRipple: #CCE8F7; // default light button ripple effect
+ lightButtonFg: windowActiveTextFg; // default light button text
+ lightButtonFgOver: lightButtonFg; // default light button text with mouse over
+ 
+-attentionButtonFg: #d14e4e; // default attention button text (like confirm button on log out)
++attentionButtonFg: #D13438; // default attention button text (like confirm button on log out)
+ attentionButtonFgOver: #d14e4e; // default attention button text with mouse over
+-attentionButtonBgOver: #fcdfde; // default attention button background with mouse over
+-attentionButtonBgRipple: #f4c3c2; // default attention button ripple effect
++attentionButtonBgOver: #FDE7E9; // default attention button background with mouse over
++attentionButtonBgRipple: #F3C0C0; // default attention button ripple effect
+ 
+ menuBg: windowBg; // default popup menu background
+ menuBgOver: windowBgOver; // default popup menu item background with mouse over
+ menuBgRipple: windowBgRipple; // default popup menu item ripple effect
+-menuIconFg: #999999; // default popup menu item icon (like main menu)
+-menuIconFgOver: #8a8a8a; // default popup menu item icon with mouse over
+-menuSubmenuArrowFg: #373737; // default popup menu submenu arrow icon (like in message field context menu in case of RTL system language)
+-menuFgDisabled: #cccccc; // default popup menu item disabled text (like unavailable items in message field context menu)
+-menuSeparatorFg: #f1f1f1; // default popup menu separator (like in message field context menu)
++menuIconFg: #6B6B6B; // default popup menu item icon (like main menu)
++menuIconFgOver: #5F5F5F; // default popup menu item icon with mouse over
++menuSubmenuArrowFg: #1F1F1F; // default popup menu submenu arrow icon (like in message field context menu in case of RTL system language)
++menuFgDisabled: #B3B3B3; // default popup menu item disabled text (like unavailable items in message field context menu)
++menuSeparatorFg: #E0E0E0; // default popup menu separator (like in message field context menu)
+ 
+ scrollBarBg: #00000053; // default scroll bar current rectangle, the bar itself (like in chats list)
+ scrollBarBgOver: #0000007a; // default scroll bar current rectangle with mouse over it
+ scrollBg: #0000001a; // default scroll bar background
+ scrollBgOver: #0000002c; // default scroll bar background with mouse over the scroll bar
+ 
+-smallCloseIconFg: #c7c7c7; // small X icon (like in Show all sessions box to the right for sessions termination)
+-smallCloseIconFgOver: #a3a3a3; // small X icon with mouse over
++smallCloseIconFg: #8A8A8A; // small X icon (like in Show all sessions box to the right for sessions termination)
++smallCloseIconFgOver: #5F5F5F; // small X icon with mouse over
+ 
+ radialFg: windowFgActive; // default radial loader line (like in Media Viewer when loading a photo)
+ radialBg: #00000056; // default radial loader background (like in Media Viewer when loading a photo)
+ 
+ placeholderFg: windowSubTextFg; // default input field placeholder when field is not focused (like in phone input field when you log in)
+-placeholderFgActive: #aaaaaa; // default input field placeholder when field is focused
+-inputBorderFg: #e0e0e0; // default input field bottom border (like in code input field when you log in and field is not focused)
+-filterInputBorderFg: #54c3f3; // default rounded input field border (like in chats list search field when field is focused)
++placeholderFgActive: #8A8A8A; // default input field placeholder when field is focused
++inputBorderFg: #D9D9D9; // default input field bottom border (like in code input field when you log in and field is not focused)
++filterInputBorderFg: #0078D7; // default rounded input field border (like in chats list search field when field is focused)
+ filterInputActiveBg: windowBg; // default rounded input field active background (like in chats list search field when field is focused)
+ filterInputInactiveBg: windowBgOver; // default rounded input field inactive background (like in chats list search field when field is inactive)
+-checkboxFg: #b3b3b3; // default unchecked checkbox rounded rectangle
++checkboxFg: #8A8A8A; // default unchecked checkbox rounded rectangle
+ 
+ botKbBg: menuBgOver; // bot keyboard button background
+ botKbDownBg: menuBgRipple; // bot keyboard button ripple effect
+@@ -91,9 +91,9 @@ botKbInlineSuccessBg: #489d38b3; // inline bot keyboard Success button backgroun
+ sliderBgInactive: #e1eaef; // default slider not active bar (like in Settings when you choose interface scale or custom notifications count)
+ sliderBgActive: windowBgActive; // default slider active bar (like in Settings when you choose interface scale or custom notifications count)
+ 
+-tooltipBg: #eef2f5; // tooltip background (like when you put mouse over the message timestamp and wait)
+-tooltipFg: #5d6c80; // tooltip text
+-tooltipBorderFg: #c9d1db; // tooltip border
++tooltipBg: #F2F2F2; // tooltip background (like when you put mouse over the message timestamp and wait)
++tooltipFg: #1F1F1F; // tooltip text
++tooltipBorderFg: #D9D9D9; // tooltip border
+ 
+ // custom title bar
+ titleShadow: #00000003; // one pixel line shadow at the bottom of custom window title
+@@ -115,11 +115,11 @@ titleButtonCloseBgActive: titleButtonCloseBg; // custom window title close butto
+ titleButtonCloseFgActive: titleButtonCloseFg; // custom window title close button icon when window is active (Windows only)
+ titleButtonCloseBgActiveOver: titleButtonCloseBgOver; // custom window title close button background with mouse over when window is active (Windows only)
+ titleButtonCloseFgActiveOver: titleButtonCloseFgOver; // custom window title close button icon with mouse over when window is active (Windows only)
+-titleFg: #acacac; // custom window title text when window is inactive (Windows 11 and macOS)
+-titleFgActive: #3e3c3e; // custom window title text when window is active (Windows 11 and macOS)
++titleFg: #6B6B6B; // custom window title text when window is inactive (Windows 11 and macOS)
++titleFgActive: #1F1F1F; // custom window title text when window is active (Windows 11 and macOS)
+ 
+ // tray icon
+-trayCounterBg: #f23c34; // tray icon counter background
++trayCounterBg: #D13438; // tray icon counter background
+ trayCounterBgMute: #888888; // tray icon counter background if all unread messages are muted
+ trayCounterFg: #ffffff; // tray icon counter text
+ trayCounterBgMacInvert: #ffffff; // tray icon counter background when tray icon is pressed or when dark theme of macOS is used (macOS only)
+@@ -134,12 +134,12 @@ cancelIconFgOver: menuIconFgOver; // default for settings close icon and box sea
+ // boxes
+ boxBg: windowBg; // box background
+ boxTextFg: windowFg; // box text
+-boxTextFgGood: #4ab44a; // accepted box text (like when choosing username that is not occupied)
+-boxTextFgError: #d84d4d; // rejecting box text (like when choosing username that is occupied)
+-boxTitleFg: #404040; // box title text
++boxTextFgGood: #107C10; // accepted box text (like when choosing username that is not occupied)
++boxTextFgError: #D13438; // rejecting box text (like when choosing username that is occupied)
++boxTitleFg: #1F1F1F; // box title text
+ boxSearchBg: boxBg; // box search field background (like in contacts box)
+ 
+-boxTitleAdditionalFg: #808080; // box title additional text (like in create group box when you see chosen members count)
++boxTitleAdditionalFg: #6B6B6B; // box title additional text (like in create group box when you see chosen members count)
+ boxTitleCloseFg: cancelIconFg; // settings close icon and box search cancel icon (like in contacts box)
+ boxTitleCloseFgOver: cancelIconFgOver; // settings close icon and box search cancel icon (like in contacts box) with mouse over
+ 
+diff --git a/ui/style/style_core_icon.cpp b/ui/style/style_core_icon.cpp
+index c1792da..0c87557 100644
+--- a/ui/style/style_core_icon.cpp
++++ b/ui/style/style_core_icon.cpp
+@@ -32,6 +32,24 @@ QMutex IconMasksMutex;
+ base::flat_map<std::pair<const IconMask*, uint32>, QPixmap> iconPixmaps;
+ base::flat_set<IconData*> iconData;
+ 
++constexpr auto kIconScale = 1.1;
++
++[[nodiscard]] QImage ScaleIconImage(QImage image) {
++	if (image.isNull()) {
++		return image;
++	}
++	const auto target = QSize(
++		qRound(image.width() * kIconScale),
++		qRound(image.height() * kIconScale));
++	auto result = image.scaled(
++		target,
++		Qt::IgnoreAspectRatio,
++		Qt::SmoothTransformation);
++	result.setDevicePixelRatio(image.devicePixelRatio());
++	return result;
++}
++
++
+ [[nodiscard]] QImage CreateIconMask(
+ 		not_null<const IconMask*> mask,
+ 		int scale,
+@@ -379,9 +397,11 @@ void MonoIcon::ensureLoaded() const {
+ 
+ 	_size = readGeneratedSize(_mask, Scale());
+ 	if (!_size.isEmpty()) {
+-		_size = _size.grownBy(_padding);
++		_size = QSize(
++			qRound(_size.width() * kIconScale),
++			qRound(_size.height() * kIconScale)).grownBy(_padding);
+ 	} else {
+-		_maskImage = ResolveIconMask(_mask);
++		_maskImage = ScaleIconImage(ResolveIconMask(_mask));
+ 		createCachedPixmap();
+ 	}
+ }
