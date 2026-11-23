@@ -4,10 +4,10 @@
 
 ## Статус
 
-- Сборка: **успешно**, Release x64, 0 ошибок, 1 предупреждение.
+- Сборка: **успешно**, Release x64, 0 ошибок, 0 предупреждений.
 - Версия: **7.4.4**.
-- Бинарник: `tdesktop\out\Release\Telegram.exe`, 271 562 752 байт.
-- SHA-256: `F7E25AC22E22502403E6F32E9419A0FF0979CE334D77A7EFA4B17E9955B48BA2`.
+- Бинарник: `tdesktop\out\Release\Telegram.exe`, 271 563 776 байт.
+- SHA-256: `525EFE8A21F5F203D228C94320208F3F250B9BEFF1C24C51B3983CDB188DDDD5`.
 - Использованы **TEST ONLY** credentials; для реального входа нужны свои `api_id` и `api_hash`.
 
 Подробности в [STATUS.md](STATUS.md).
@@ -16,7 +16,7 @@
 
 | Путь | Назначение |
 |---|---|
-| `patches/` | Диффы к upstream Telegram Desktop v7.4.4 и его build-хелперам |
+| `patches/` | Патчи сборки и визуальной темы |
 | `scripts/build.ps1` | Скрипт сборки: clone, патчи, prepare, configure, msbuild |
 | `BUILD.md` | Пошаговая инструкция |
 | `STATUS.md` | Текущий результат сборки и ограничения |
@@ -34,7 +34,14 @@
 - Иконки увеличены на 10% по ширине и высоте.
 - Есть светлая и тёмная темы, настройки, контакты, звонки, поиск и демо-состояния.
 
-Подробности в [design/README.md](design/README.md).
+Визуальные изменения уже внесены в C++/Qt-код и собираются:
+
+| Патч | Что меняет |
+|---|---|
+| `patches/lib_ui-windows-theme.diff` | Палитра `ui/colors.palette` и глобальный масштаб иконок `kIconScale = 1.1` |
+| `patches/windows-visual-theme.diff` | Компактные строки чата и тёмная тема `night.tdesktop-theme` |
+
+Подробности в [design/README.md](design/README.md) и [BUILD.md](BUILD.md).
 
 ## Быстрый старт
 
@@ -51,6 +58,8 @@ git clone --recursive --branch v7.4.4 https://github.com/telegramdesktop/tdeskto
 $PACK = "H:\ModTG\telegrammoderatorpack"
 git -C H:\ModTG\tdesktop apply "$PACK\patches\prepare.py.diff"
 git -C H:\ModTG\tdesktop\cmake apply "$PACK\patches\run_cmake.py.diff"
+git -C H:\ModTG\tdesktop\Telegram\lib_ui apply "$PACK\patches\lib_ui-windows-theme.diff"
+git -C H:\ModTG\tdesktop apply "$PACK\patches\windows-visual-theme.diff"
 ```
 
 4. Подготовьте зависимости:
@@ -85,4 +94,4 @@ configure.bat x64 -D TDESKTOP_API_ID=ВАШ_API_ID -D TDESKTOP_API_HASH=ВАШ_A
 - Собранный `Telegram.exe` не подписан; Windows SmartScreen может предупреждать.
 - Не коммитьте `api_hash`, `tdata`, логи и файлы сессий.
 - Полное дерево `Libraries`, `ThirdParty` и `tdesktop\out` не хранится в Git: его нужно собрать локально.
-- Дизайн-прототип пока не перенесён в C++/Qt. Это отдельный этап, в котором меняется только визуальный слой, а расположение кнопок остаётся официальным.
+- Визуальные изменения пока не включают квадратные аватары и полную переработку геометрии пузырей сообщений. Это следующий этап.

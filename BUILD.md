@@ -40,6 +40,8 @@ $PACK = "H:\ModTG\telegrammoderatorpack"
 
 git -C H:\ModTG\tdesktop apply "$PACK\patches\prepare.py.diff"
 git -C H:\ModTG\tdesktop\cmake apply "$PACK\patches\run_cmake.py.diff"
+git -C H:\ModTG\tdesktop\Telegram\lib_ui apply "$PACK\patches\lib_ui-windows-theme.diff"
+git -C H:\ModTG\tdesktop apply "$PACK\patches\windows-visual-theme.diff"
 ```
 
 Патчи делают следующее:
@@ -52,6 +54,8 @@ git -C H:\ModTG\tdesktop\cmake apply "$PACK\patches\run_cmake.py.diff"
   - собирает libvpx с target `x86_64-win64-vs17-v145`;
   - делает shallow clone FFmpeg и исправляет определение MSVC в его `configure`.
 - `run_cmake.py.diff`: заменяет `-T v143` на `-T v145`, потому что в VS 2026 компонент v143 отсутствует.
+- `lib_ui-windows-theme.diff`: меняет палитру `ui/colors.palette` на нейтральную Windows-палитру и включает глобальный масштаб иконок 1.1.
+- `windows-visual-theme.diff`: уменьшает строки списка чатов до 60 px, обновляет отступы и перекрашивает `night.tdesktop-theme` в нейтральную тёмную тему.
 
 ## 4. Подготовка зависимостей
 
@@ -110,7 +114,18 @@ H:\ModTG\tdesktop\out\Release\Telegram.exe
 
 Рядом должна оставаться папка `modules` — в неё post-build копирует `d3dcompiler_47.dll` для ANGLE.
 
-## 7. Известные особенности
+## 7. Визуальные изменения
+
+| Файл | Изменение |
+|---|---|
+| `lib_ui/ui/colors.palette` | Светлая палитра: фон `#FFFFFF`, текст `#1F1F1F`, вторичный текст `#6B6B6B`, акцент `#0078D7`, активный текст `#0067B8` |
+| `lib_ui/ui/style/style_core_icon.cpp` | Глобальный коэффициент иконок `1.1`, то есть +10% по ширине и высоте |
+| `dialogs/dialogs.style` | Компактная строка чата: высота `60 px`, аватар `44 px`, отступы `7 px` |
+| `Resources/night.tdesktop-theme` | Тёмная палитра: фон `#1F1F1F`, поверхности `#2B2B2B`, акцент `#0F6CBD`, активный текст `#4CC2FF` |
+
+Проверка после применения: сборка Release x64 завершилась с 0 ошибок и 0 предупреждений; `Telegram.exe` запускается с временным профилем.
+
+## 8. Известные особенности
 
 - VS 2026 не содержит toolset `v143`, поэтому все MSBuild-проекты, которые его требуют, переводятся на `v145`. Это относится к lzma, dump_syms, libvpx и `run_cmake.py`.
 - FFmpeg определяет MSVC по первой строке вывода `cl.exe`. При русской локализации строка начинается не с `Microsoft`, поэтому в `configure` заменяется проверка `grep -q ^Microsoft` на `grep -qi Microsoft`.
@@ -118,3 +133,4 @@ H:\ModTG\tdesktop\out\Release\Telegram.exe
 - `mirror.msys2.org` не отвечал; MSYS2 переключён на Tsinghua.
 - Тестовая сборка с `TDESKTOP_API_TEST=ON` использует официальные TEST ONLY credentials и не подходит для реального использования.
 - Собранный exe не подписан. SmartScreen может показывать предупреждение.
+- Квадратные аватары и полная переработка геометрии пузырей сообщений в этот проход не входят.

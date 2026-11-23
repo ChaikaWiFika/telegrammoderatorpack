@@ -56,13 +56,24 @@
 - Скриншоты: 1440x900, 1024x768, 390x844; светлая и тёмная темы; главное меню, настройки, контакты, мобильный диалог.
 - Визуальный стиль проверен в Firefox headless.
 
-## Следующий этап
+## C++/Qt status
 
-Перенос в C++/Qt без изменения расположения кнопок:
+Визуальные изменения уже внесены в код и собраны:
 
-- визуальные токены в стили `lib_ui` / `Telegram/SourceFiles`;
-- цвета и типографика в тему;
-- квадратные аватары и плоские поверхности;
-- компактная плотность по умолчанию;
-- масштаб иконок 110%;
-- сохранение официальной геометрии `Window::Controller`, `Dialogs::Widget`, `HistoryView::TopBarWidget` и `ComposeControls`.
+- `Telegram/lib_ui/ui/colors.palette`: нейтральная светлая палитра, акцент `#0078D7`;
+- `Telegram/lib_ui/ui/style/style_core_icon.cpp`: глобальный масштаб иконок 1.1;
+- `Telegram/SourceFiles/dialogs/dialogs.style`: компактные строки чата 60 px, аватар 44 px;
+- `Telegram/Resources/night.tdesktop-theme`: нейтральная тёмная палитра, акцент `#0F6CBD`.
+
+Патчи:
+
+- `patches/lib_ui-windows-theme.diff`;
+- `patches/windows-visual-theme.diff`.
+
+Сборка Release x64: 0 ошибок, 0 предупреждений, 4 мин 41 с. `Telegram.exe` запускается с временным профилем. Официальная геометрия `Window::Controller`, `Dialogs::Widget`, `HistoryView::TopBarWidget` и `ComposeControls` не менялась.
+
+## Что осталось
+
+- Квадратные аватары и полная геометрия пузырей сообщений.
+- Более точная настройка отступов шапки и composer под компактный режим.
+- Полная визуальная сверка с прототипом на всех экранах.

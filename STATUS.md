@@ -10,13 +10,20 @@
 | Параметр | Значение |
 |---|---|
 | Исполняемый файл | `H:\ModTG\tdesktop\out\Release\Telegram.exe` |
-| Размер | 271 562 752 байт (~259 МБ) |
-| SHA-256 | `F7E25AC22E22502403E6F32E9419A0FF0979CE334D77A7EFA4B17E9955B48BA2` |
+| Размер | 271 563 776 байт (~259 МБ) |
+| SHA-256 | `525EFE8A21F5F203D228C94320208F3F250B9BEFF1C24C51B3983CDB188DDDD5` |
 | Версия файла | 7.4.4.0 |
-| PDB | `out\Release\Telegram.pdb`, 4 146 290 688 байт (не в Git) |
-| Время финальной сборки | 17 мин 17 с |
+| PDB | `out\Release\Telegram.pdb`, 4 417 773 568 байт (не в Git) |
+| Время финальной сборки | 4 мин 41 с |
 | Ошибки | 0 |
-| Предупреждения | 1 — `C4864` в `api_confirm_phone.cpp`, на работу не влияет |
+| Предупреждения | 0 |
+
+## Визуальные изменения
+
+- `Telegram/lib_ui/ui/colors.palette`: нейтральная светлая палитра, акцент `#0078D7`, активный текст `#0067B8`.
+- `Telegram/SourceFiles/dialogs/dialogs.style`: компактные строки чата, высота 60 px, аватар 44 px, обновлённые отступы.
+- `Telegram/lib_ui/ui/style/style_core_icon.cpp`: глобальный масштаб иконок 1.1 (`20 px -> 22 px`).
+- `Telegram/Resources/night.tdesktop-theme`: нейтральная тёмная палитра, акцент `#0F6CBD`, текст `#4CC2FF`.
 
 ## API credentials
 
@@ -36,10 +43,10 @@ msbuild out\Telegram.slnx /t:Telegram /p:Configuration=Release /p:Platform=x64 /
 
 ## Что не хранится в репозитории
 
-- `H:\ModTG\Libraries` — 42,7 ГБ собранных зависимостей.
-- `H:\ModTG\ThirdParty` — 1,2 ГБ MSYS2, Rust, Python venv, NuGet, jom.
-- `H:\ModTG\tdesktop\out` — 43 ГБ объектных файлов, PDB и exe.
-- `Telegram.pdb` — 4,1 ГБ, нужен только для отладки.
+- `H:\ModTG\Libraries` - собранные зависимости.
+- `H:\ModTG\ThirdParty` - MSYS2, Rust, Python venv, NuGet, jom.
+- `H:\ModTG\tdesktop\out` - объектные файлы, PDB и exe.
+- `Telegram.pdb` - 4,4 ГБ, нужен только для отладки.
 - `tdata`, логи и любые `api_hash`/токены.
 
 Эти данные воспроизводятся командами из `BUILD.md`; бинарник при необходимости публикуется отдельно через GitHub Releases.
